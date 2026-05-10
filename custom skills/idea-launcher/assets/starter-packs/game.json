@@ -1,0 +1,53 @@
+{
+  "slug": "game",
+  "project_type": "game",
+  "good_side": "A small game can prove a mechanic quickly and make the idea easy to share.",
+  "bad_side": "Games sprawl through art, levels, effects, menus, and tuning before the core mechanic is fun.",
+  "core_proof": "A player can understand and replay the core mechanic within one minute.",
+  "core_workflow": "Start a round, play the main mechanic, receive feedback, and restart quickly.",
+  "default_non_goals": ["account systems", "online multiplayer", "large asset pipelines", "level editors"],
+  "constraints": ["Prototype the mechanic before content", "Keep controls simple", "Make restart instant"],
+  "workflow_steps": ["Start the game loop", "Use the main input to affect game state", "Win, lose, score, or restart"],
+  "entity": "GameState",
+  "entity_purpose": "Tracks the current round and player progress",
+  "fields": ["score", "phase", "timeRemaining", "playerState", "worldState"],
+  "relationships": "Updated by input and simulation systems",
+  "owner": "Game loop",
+  "risk": "The game has presentation but the mechanic is not fun or legible.",
+  "mitigation": "Build a graybox mechanic and replay loop before final assets.",
+  "open_question": "What is the one player action that should feel good in v1?",
+  "later_task": "Add content, polish, and juice after the mechanic works.",
+  "core_assertion": "The round loop can start, resolve, and restart without broken state.",
+  "unit_check": "Validate game-state transitions",
+  "integration_check": "Run one simulated round",
+  "e2e_check": "Manually play one round on desktop and mobile if web-based",
+  "test_tool": "project test runner",
+  "acceptance": "Round loop is playable and restartable",
+  "env_var": "GAME_PUBLIC_URL",
+  "env_vars": ["GAME_PUBLIC_URL"],
+  "stack": {
+    "FRONTEND": "Canvas, Phaser, Three.js, or existing game framework",
+    "BACKEND": "None for v1",
+    "STORAGE": "Local state only unless scores are core",
+    "AUTH": "None for v1",
+    "INTEGRATIONS": "None for v1",
+    "BACKGROUND_JOBS": "None",
+    "DEPLOYMENT_TARGET": "Static host or existing app host",
+    "ENV_PURPOSE": "Public game URL after deploy",
+    "ENV_SOURCE": "Deployment environment"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm run dev",
+    "build": "npm run build",
+    "test": "npm test",
+    "lint": "npm run lint",
+    "deploy": "deploy static build"
+  },
+  "directories": ["src/game", "src/assets", "tests"],
+  "files": {
+    "src/game/.gitkeep": "",
+    "src/assets/.gitkeep": "",
+    "tests/.gitkeep": ""
+  }
+}

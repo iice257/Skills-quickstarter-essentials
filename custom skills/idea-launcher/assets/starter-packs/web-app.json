@@ -1,0 +1,52 @@
+{
+  "slug": "web-app",
+  "project_type": "web app",
+  "good_side": "A browser-based workflow is easy to demo, iterate, and deploy.",
+  "bad_side": "The project can sprawl into auth, dashboards, collaboration, and design polish before the core loop works.",
+  "core_proof": "A user can complete the primary workflow in the browser and see a useful result.",
+  "core_workflow": "Capture input, process it, persist or display the result, and let the user act on it.",
+  "default_non_goals": ["multi-role auth", "payments", "admin dashboard", "real-time collaboration"],
+  "constraints": ["Prefer static HTML/CSS/vanilla JS unless a framework is justified", "Keep v1 to one core workflow", "Make the working surface domain-specific and fast"],
+  "workflow_steps": ["Open the app and provide the main input", "Review or edit the generated result", "Save, export, or complete the result"],
+  "entity": "ProjectItem",
+  "entity_purpose": "Stores the primary thing the user creates or manages",
+  "fields": ["id", "title", "status", "content", "createdAt", "updatedAt"],
+  "relationships": "Owned by the current user or local workspace",
+  "owner": "User",
+  "risk": "The UI looks complete before the workflow is actually useful.",
+  "mitigation": "Build the end-to-end workflow before secondary screens.",
+  "open_question": "Does v1 need accounts, or can it run as a local/single-user app first?",
+  "later_task": "Add account-based persistence if the first workflow proves useful.",
+  "core_assertion": "The core workflow produces the expected result from realistic input.",
+  "unit_check": "Validate transformation or state logic",
+  "integration_check": "Complete create/update/read flow against storage",
+  "e2e_check": "Run the primary browser workflow",
+  "test_tool": "project test runner",
+  "acceptance": "Expected output appears and persists after refresh if persistence exists",
+  "env_var": "APP_BASE_URL",
+  "env_vars": ["APP_BASE_URL"],
+  "stack": {
+    "FRONTEND": "Next.js or the repo's existing frontend framework",
+    "BACKEND": "API routes or existing backend",
+    "STORAGE": "Start with local/file/mock storage unless persistence is core",
+    "AUTH": "None for v1 unless required",
+    "INTEGRATIONS": "Only integrations needed by the core workflow",
+    "BACKGROUND_JOBS": "None for v1",
+    "DEPLOYMENT_TARGET": "Vercel or the repo's existing host",
+    "ENV_PURPOSE": "Application URL or host configuration",
+    "ENV_SOURCE": "Deployment environment"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm run dev",
+    "build": "npm run build",
+    "test": "npm test",
+    "lint": "npm run lint",
+    "deploy": "vercel deploy"
+  },
+  "directories": ["src", "tests"],
+  "files": {
+    "src/.gitkeep": "",
+    "tests/.gitkeep": ""
+  }
+}

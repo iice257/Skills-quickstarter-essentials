@@ -1,0 +1,11 @@
+all/frontend-skill
+all/design-taste-frontend
+all/redesign-existing-projects
+all/image-taste-frontend
+all/full-output-enforcement
+all/playwright
+all/playwright-interactive
+all/gh-fix-ci
+all/gh-address-comments
+all/vercel-deploy
+all/netlify-deploy

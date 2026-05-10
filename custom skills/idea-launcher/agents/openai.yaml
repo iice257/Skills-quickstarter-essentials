@@ -1,0 +1,4 @@
+interface:
+  display_name: "Idea Launcher"
+  short_description: "Turn rough ideas into build-ready plans and starters"
+  default_prompt: "Use $idea-launcher to turn my rough app, tool, game, or automation idea into a focused spec, task plan, verification checklist, deploy plan, starter structure, and first build prompt."

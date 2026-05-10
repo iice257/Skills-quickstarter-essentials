@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{PROJECT_NAME}}</title>
+    <link rel="stylesheet" href="./src/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace" aria-labelledby="app-title">
+        <div class="masthead">
+          <p class="eyebrow">Idea Launcher starter</p>
+          <h1 id="app-title">{{PROJECT_NAME}}</h1>
+          <p class="summary">{{ONE_LINE_CONCEPT}}</p>
+        </div>
+
+        <form class="composer" id="idea-form">
+          <label for="idea-input">Input</label>
+          <textarea id="idea-input" name="idea" rows="8">Paste a rough input here, then generate the first useful result.</textarea>
+          <button type="submit">Generate Result</button>
+        </form>
+
+        <section class="result" aria-live="polite">
+          <div>
+            <p class="section-label">Result</p>
+            <h2 id="result-title">Ready for the core workflow</h2>
+          </div>
+          <ul id="result-list"></ul>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

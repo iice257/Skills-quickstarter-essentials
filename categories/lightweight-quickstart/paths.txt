@@ -1,0 +1,4 @@
+all/frontend-skill
+all/design-taste-frontend
+all/full-output-enforcement
+all/playwright

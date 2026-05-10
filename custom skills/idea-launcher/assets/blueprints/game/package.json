@@ -1,0 +1,12 @@
+{
+  "name": "{{PROJECT_SLUG}}",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "python -m http.server 5173",
+    "build": "node scripts/build.js",
+    "test": "node tests/smoke-test.js",
+    "lint": "node tests/smoke-test.js"
+  }
+}

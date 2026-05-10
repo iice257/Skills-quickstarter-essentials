@@ -1,0 +1,5 @@
+favourites/frontend-skill
+favourites/design-taste-frontend
+favourites/redesign-existing-projects
+favourites/image-taste-frontend
+favourites/full-output-enforcement

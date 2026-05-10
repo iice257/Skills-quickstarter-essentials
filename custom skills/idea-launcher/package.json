@@ -1,0 +1,22 @@
+{
+  "name": "idea-launcher-skill",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Codex skill that turns rough ideas into build-ready specs, tasks, deploy plans, and runnable starter projects.",
+  "bin": {
+    "idea-launcher": "scripts/idea-launcher.mjs"
+  },
+  "scripts": {
+    "launch": "node scripts/idea-launcher.mjs",
+    "validate:skill": "python scripts/validate_placeholders.py ."
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "agents",
+    "assets",
+    "references",
+    "scripts"
+  ],
+  "license": "MIT"
+}

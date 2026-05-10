@@ -1,0 +1,4 @@
+interface:
+  display_name: "X Publisher"
+  short_description: "Draft X posts and run safe MCP tools"
+  default_prompt: "Use $x-publisher to draft, validate, thread, open an X composer link, or use the dry-run MCP workflow for X account actions."
