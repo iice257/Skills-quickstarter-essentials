@@ -30,6 +30,18 @@ After installing skills in Codex, restart Codex so the new skills are picked up.
 | [`categories/`](https://github.com/iice257/Skills/tree/main/categories) | Scenario bundles for lightweight setup, full startup, web development, debugging, and cybersec. |
 | [`mcps/`](https://github.com/iice257/Skills/tree/main/mcps) | MCP config examples. |
 
+## Quick product/idea Launch and post
+
+Use `idea-launcher` and `x-publisher` together when an idea needs to become a useful repo and a clean launch post.
+
+1. Shape the idea with `idea-launcher`: define the audience, smallest credible version, build plan, test plan, and launch angle.
+2. Build the smallest useful artifact: working code, focused README, install/run commands, screenshots or demo notes, and a short roadmap.
+3. Make the repo easy to judge quickly: put the problem, output, setup path, and example usage near the top of the README.
+4. Draft the announcement with `x-publisher`: one short post for the core value, or a thread when the project needs proof, examples, and a call to action.
+5. Validate the post locally, open the composer link, review manually, and publish only when the repo is ready to receive attention.
+
+This workflow keeps promotion tied to a real artifact: the idea becomes a repo first, then the post sends people somewhere worth starring, testing, or contributing to.
+
 ## Favourites
 
 These are capped at 5 skills. They are the fastest useful starting point.
