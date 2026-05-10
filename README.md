@@ -3,6 +3,9 @@
 A collection of skills I made for AI agents and models to speed up my workflow as well as yours.
 
 This README indexes the skills and MCP-enabled plugins currently available in my Codex setup. Local links use `file:///` targets because these skills live outside this repository on this machine.
+This can be useful for all existing, as well as new users of any AGENTIC IDE, but most especially Codex users.
+
+To use just paste this to your AI agent `$skill-installer install the listed skills at https://github.com/iice257/Skills`
 
 ## Enabled plugins / MCP providers
 
