@@ -25,6 +25,7 @@ all/redesign-existing-projects
 all/screenshot
 all/security-best-practices
 all/security-ownership-map
+all/skills-update
 all/speech
 all/stitch-design-taste
 all/transcribe

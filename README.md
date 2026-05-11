@@ -28,7 +28,7 @@ After installing skills in Codex, restart Codex so the new skills are picked up.
 
 | Folder | Purpose |
 | --- | --- |
-| [`favourites/`](https://github.com/iice257/Skills/tree/main/favourites) | Max 5 high-value skills for quick installs. |
+| [`favourites/`](https://github.com/iice257/Skills/tree/main/favourites) | Max 6 high-value skills for quick installs. |
 | [`reccomended/`](https://github.com/iice257/Skills/tree/main/reccomended) | Top 15 all-round dev workflow skills with no duplicates and broad category spread. |
 | [`originals/`](https://github.com/iice257/Skills/tree/main/originals) | My originals: skills authored/customized by me and other non-stock additions. |
 | [`all/`](https://github.com/iice257/Skills/tree/main/all) | Canonical installable copy of the core starter catalog and my non-provider skills. |

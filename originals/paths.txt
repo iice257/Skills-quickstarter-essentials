@@ -10,6 +10,7 @@ all/full-output-enforcement
 all/autoresearch
 all/idea-launcher
 all/minimum-viable-parser
+all/skills-update
 all/imessage-handoff
 all/x-publisher
 all/find-skills

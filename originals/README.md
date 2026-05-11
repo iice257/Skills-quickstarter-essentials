@@ -18,6 +18,7 @@ For installation, the most reliable paths are the matching canonical copies unde
 | `autoresearch` | `all/autoresearch` |
 | `idea-launcher` | `all/idea-launcher` |
 | `minimum-viable-parser` | `all/minimum-viable-parser` |
+| `skills-update` | `all/skills-update` |
 | `imessage-handoff` | `all/imessage-handoff` |
 | `x-publisher` | `all/x-publisher` |
 | `find-skills` | `all/find-skills` |

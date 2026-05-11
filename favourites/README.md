@@ -1,6 +1,6 @@
 ﻿# Favourites
 
-Max 5 skills at any given time.
+Max 6 skills at any given time.
 
 | Slot | Skill | Canonical source |
 | --- | --- | --- |
@@ -9,6 +9,7 @@ Max 5 skills at any given time.
 | 3 | `autoresearch` | `all/autoresearch` |
 | 4 | `idea-launcher` | `all/idea-launcher` |
 | 5 | `minimum-viable-parser` | `all/minimum-viable-parser` |
+| 6 | `skills-update` | `all/skills-update` |
 
 Paste into your agent:
 

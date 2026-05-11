@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skills Update"
+  short_description: "Update installed Codex skills"
+  default_prompt: "Use $skills-update to check installed Codex skills for updates and apply safe updates."
