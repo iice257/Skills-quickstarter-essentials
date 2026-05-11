@@ -7,6 +7,7 @@ all/minimalist-ui
 all/high-end-visual-design
 all/stitch-design-taste
 all/full-output-enforcement
+all/autoresearch
 all/idea-launcher
 all/minimum-viable-parser
 all/imessage-handoff

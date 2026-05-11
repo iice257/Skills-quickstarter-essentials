@@ -1,3 +1,4 @@
+all/autoresearch
 all/idea-launcher
 all/minimum-viable-parser
 all/find-skills

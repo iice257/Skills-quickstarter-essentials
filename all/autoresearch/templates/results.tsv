@@ -1,0 +1,2 @@
+experiment	commit	metric	status	description
+baseline	<commit-or-working-tree>	<metric>	baseline	<metric command>

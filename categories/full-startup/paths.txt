@@ -1,3 +1,4 @@
+all/autoresearch
 all/design-taste-frontend
 all/doc
 all/find-skills

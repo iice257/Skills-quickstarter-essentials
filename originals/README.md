@@ -15,6 +15,7 @@ For installation, the most reliable paths are the matching canonical copies unde
 | `high-end-visual-design` | `all/high-end-visual-design` |
 | `stitch-design-taste` | `all/stitch-design-taste` |
 | `full-output-enforcement` | `all/full-output-enforcement` |
+| `autoresearch` | `all/autoresearch` |
 | `idea-launcher` | `all/idea-launcher` |
 | `minimum-viable-parser` | `all/minimum-viable-parser` |
 | `imessage-handoff` | `all/imessage-handoff` |

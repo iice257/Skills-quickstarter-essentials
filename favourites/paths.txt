@@ -1,5 +1,5 @@
-﻿favourites/imessage-handoff
+favourites/imessage-handoff
 favourites/x-publisher
-favourites/vercel-deploy
+favourites/autoresearch
 favourites/idea-launcher
 favourites/minimum-viable-parser

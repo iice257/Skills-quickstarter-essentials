@@ -6,7 +6,7 @@ Max 5 skills at any given time.
 | --- | --- | --- |
 | 1 | `imessage-handoff` | `all/imessage-handoff` |
 | 2 | `x-publisher` | `all/x-publisher` |
-| 3 | `vercel-deploy` | `all/vercel-deploy` |
+| 3 | `autoresearch` | `all/autoresearch` |
 | 4 | `idea-launcher` | `all/idea-launcher` |
 | 5 | `minimum-viable-parser` | `all/minimum-viable-parser` |
 
