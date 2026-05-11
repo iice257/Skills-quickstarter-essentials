@@ -8,10 +8,12 @@ This repo does not run anything by itself. It gives your agent installable skill
 
 Paste one of these into your AI agent:
 
+For a lightweight quickstart:
 ```text
 $skill-installer install the skills listed at https://github.com/iice257/Skills/tree/main/categories/lightweight-quickstart
 ```
 
+For thr web design/development pack:
 ```text
 $skill-installer install the skills listed at https://github.com/iice257/Skills/tree/main/categories/web-development-setup
 ```
