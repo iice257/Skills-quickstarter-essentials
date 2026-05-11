@@ -1,4 +1,4 @@
-# Skill Starter Pack
+# Skill Starter Pack - AI agent/harness essentials
 
 An agent quick skills starter pack for Codex and other agentic IDEs.
 
