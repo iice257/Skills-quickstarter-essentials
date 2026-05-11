@@ -1,0 +1,15 @@
+reccomended/autoresearch
+reccomended/minimum-viable-parser
+reccomended/frontend-skill
+reccomended/design-taste-frontend
+reccomended/playwright
+reccomended/gh-fix-ci
+reccomended/gh-address-comments
+reccomended/vercel-deploy
+reccomended/netlify-deploy
+reccomended/security-best-practices
+reccomended/gemini-api-dev
+reccomended/doc
+reccomended/imagegen
+reccomended/winui-app
+reccomended/openai-docs

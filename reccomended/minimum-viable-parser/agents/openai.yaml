@@ -1,0 +1,4 @@
+interface:
+  display_name: "Minimum Viable Parser"
+  short_description: "Choose the lightest accurate parsing path"
+  default_prompt: "Use $minimum-viable-parser to choose the lightest accurate way to inspect this page or file before parsing it."

@@ -15,6 +15,7 @@ Paste the command that matches what you want into your AI agent.
 | Web development setup | Frontend, design, browser testing, CI, and deployment. | `Skill Installer install the skills listed at https://github.com/iice257/Skills/tree/main/categories/web-development-setup` |
 | Full startup | Installs the full skill catalog. | `Skill Installer install the skills listed at https://github.com/iice257/Skills/tree/main/categories/full-startup` |
 | Favourites | Installs the current capped favourites shortlist. | `Skill Installer install the skills listed at https://github.com/iice257/Skills/tree/main/favourites` |
+| Reccomended | Installs 15 broad all-round dev workflow skills with category spread. | `Skill Installer install the skills listed at https://github.com/iice257/Skills/tree/main/reccomended` |
 | My originals | Installs my originals/custom skills. | `Skill Installer install the skills listed at https://github.com/iice257/Skills/tree/main/originals` |
 | Official OpenAI | OpenAI skills from `openai/skills` plus local Codex OpenAI cache entries. | `Skill Installer install the skills listed at https://github.com/iice257/Skills/tree/main/categories/openai-official` |
 | Claude Code | Anthropic skills plus local Claude Code-style skills found on this machine. | `Skill Installer install the skills listed at https://github.com/iice257/Skills/tree/main/categories/claude-code` |
@@ -28,6 +29,7 @@ After installing skills in Codex, restart Codex so the new skills are picked up.
 | Folder | Purpose |
 | --- | --- |
 | [`favourites/`](https://github.com/iice257/Skills/tree/main/favourites) | Max 5 high-value skills for quick installs. |
+| [`reccomended/`](https://github.com/iice257/Skills/tree/main/reccomended) | Top 15 all-round dev workflow skills with no duplicates and broad category spread. |
 | [`originals/`](https://github.com/iice257/Skills/tree/main/originals) | My originals: skills authored/customized by me and other non-stock additions. |
 | [`all/`](https://github.com/iice257/Skills/tree/main/all) | Canonical installable copy of the core starter catalog and my non-provider skills. |
 | [`official-openai/`](https://github.com/iice257/Skills/tree/main/official-openai) | Official OpenAI skills from GitHub and local Codex OpenAI cache entries. |
@@ -74,6 +76,7 @@ These are MCP config references, not Codex skills.
 
 - This is a curated collection. Some skills are my originals; some include third-party or open-source provenance in their own license files.
 - Use `favourites/` or `categories/lightweight-quickstart/` for fast setup.
+- Use `reccomended/` for a broader all-round dev workflow setup without installing everything.
 - Use `categories/full-startup/` only when you want the whole catalog.
 - Provider packs are separate from my originals and favourites.
 - Provider GitHub sources checked: [`openai/skills`](https://github.com/openai/skills), [`anthropics/skills`](https://github.com/anthropics/skills), and [`google-gemini/gemini-cli`](https://github.com/google-gemini/gemini-cli).
@@ -89,7 +92,7 @@ If pointed to the README and not a folder, first ask what they are setting up.
 
 Ask them to answer one of two questions:
 
-1. Whether they want a focused category, favourites, my originals, provider packs, specific skills, MCP config references, or everything. For focused categories, list a few options such as web development, design/UI, debugging, GitHub CI, deployment, cybersec, OpenAI official, Claude Code, Gemini, and Cursor.
+1. Whether they want a focused category, favourites, reccomended, my originals, provider packs, specific skills, MCP config references, or everything. For focused categories, list a few options such as web development, design/UI, debugging, GitHub CI, deployment, cybersec, OpenAI official, Claude Code, Gemini, and Cursor.
 2. What kind of work they do most, or currently plan to do: web development, design/UI, debugging, GitHub CI, deployment, cybersec, content/media, documents, AI APIs, mobile/desktop, planning/productivity, OpenAI official skills, Claude Code skills, Gemini skills, or Cursor rules.
 
 From their answer, recommend and install one or more matching categories from `categories/` and show the skills included.
@@ -97,6 +100,8 @@ From their answer, recommend and install one or more matching categories from `c
 If the user says they want everything, install the paths listed in `categories/full-startup/paths.txt`.
 
 If the user wants favourites, install the paths listed in `favourites/paths.txt`.
+
+If the user wants reccomended, install the paths listed in `reccomended/paths.txt`.
 
 If the user wants my originals, install the paths listed in `originals/paths.txt`.
 
