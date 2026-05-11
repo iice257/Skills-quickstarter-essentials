@@ -1,4 +1,5 @@
-﻿all/idea-launcher
+all/idea-launcher
+all/minimum-viable-parser
 all/find-skills
 all/full-output-enforcement
 all/imessage-handoff

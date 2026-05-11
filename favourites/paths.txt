@@ -2,3 +2,4 @@
 favourites/x-publisher
 favourites/vercel-deploy
 favourites/idea-launcher
+favourites/minimum-viable-parser

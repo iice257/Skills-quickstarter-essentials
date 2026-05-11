@@ -8,6 +8,7 @@ all/high-end-visual-design
 all/stitch-design-taste
 all/full-output-enforcement
 all/idea-launcher
+all/minimum-viable-parser
 all/imessage-handoff
 all/x-publisher
 all/find-skills

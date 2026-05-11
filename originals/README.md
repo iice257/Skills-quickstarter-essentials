@@ -16,6 +16,7 @@ For installation, the most reliable paths are the matching canonical copies unde
 | `stitch-design-taste` | `all/stitch-design-taste` |
 | `full-output-enforcement` | `all/full-output-enforcement` |
 | `idea-launcher` | `all/idea-launcher` |
+| `minimum-viable-parser` | `all/minimum-viable-parser` |
 | `imessage-handoff` | `all/imessage-handoff` |
 | `x-publisher` | `all/x-publisher` |
 | `find-skills` | `all/find-skills` |

@@ -1,6 +1,6 @@
 ﻿# Favourites
 
-Max 5 skills at any given time. Slot 5 is intentionally blank for the next incoming skill.
+Max 5 skills at any given time.
 
 | Slot | Skill | Canonical source |
 | --- | --- | --- |
@@ -8,7 +8,7 @@ Max 5 skills at any given time. Slot 5 is intentionally blank for the next incom
 | 2 | `x-publisher` | `all/x-publisher` |
 | 3 | `vercel-deploy` | `all/vercel-deploy` |
 | 4 | `idea-launcher` | `all/idea-launcher` |
-| 5 | _Reserved_ | _Coming next_ |
+| 5 | `minimum-viable-parser` | `all/minimum-viable-parser` |
 
 Paste into your agent:
 
