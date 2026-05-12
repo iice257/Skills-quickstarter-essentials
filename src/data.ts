@@ -29,7 +29,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-export const repoUrl = "https://github.com/iice257/Skills-quickstarter-essentials";
+export const repoUrl = "https://github.com/iice257/Skills-quickstarter";
 export const commandRepoBase = "https://github.com/iice257/Skills";
 
 export type NavItem = {
