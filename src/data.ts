@@ -256,9 +256,9 @@ export const trustItems = [
 
 export const stats = [
   { value: "100+", label: "Skills" },
-  { value: "20+", label: "Scenario bundles" },
+  { value: "20+", label: "Bundles" },
   { value: "4", label: "Provider packs" },
-  { value: "2", label: "MCP configs" }
+  { value: "1cmd", label: "Setup time" }
 ];
 
 export const ecosystem = [

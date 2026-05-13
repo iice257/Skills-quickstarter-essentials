@@ -1,4 +1,4 @@
-import { Box, Github, Menu, X } from "lucide-react";
+import { Github, Grid2X2, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { navItems, repoUrl } from "../data";
 
@@ -9,7 +9,7 @@ export function Header() {
     <header className="site-header">
       <a className="brand" href="#home" aria-label="Skill Starter Pack home">
         <span className="brand-mark">
-          <Box aria-hidden="true" />
+          <Grid2X2 aria-hidden="true" />
         </span>
         <span>Skill Starter Pack</span>
       </a>

@@ -1,5 +1,4 @@
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
 import { scenarios } from "../data";
 
 export function ScenarioGrid() {
@@ -21,23 +20,20 @@ export function ScenarioGrid() {
           const Icon = scenario.icon;
 
           return (
-            <motion.a
+            <a
               key={scenario.name}
               className="scenario-card"
               href={scenario.href}
               target="_blank"
               rel="noreferrer"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.025, duration: 0.35 }}
             >
+              <em>{String(index + 1).padStart(2, "0")}</em>
               <span>
                 <Icon aria-hidden="true" />
               </span>
               <strong>{scenario.name}</strong>
               <p>{scenario.description}</p>
-            </motion.a>
+            </a>
           );
         })}
       </div>

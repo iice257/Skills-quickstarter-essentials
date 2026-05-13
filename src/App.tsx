@@ -6,6 +6,7 @@ import { McpProviders } from "./components/McpProviders";
 import { NeedCards } from "./components/NeedCards";
 import { QuickStart } from "./components/QuickStart";
 import { ScenarioGrid } from "./components/ScenarioGrid";
+import { StatsBar } from "./components/StatsBar";
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <StatsBar />
         <NeedCards />
-        <section className="surface-section" aria-label="Skill Starter Pack details">
+        <section className="details-section" aria-label="Skill Starter Pack details">
           <div className="surface-grid">
             <ScenarioGrid />
             <QuickStart />

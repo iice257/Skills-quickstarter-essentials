@@ -1,14 +1,19 @@
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
 import { needCards } from "../data";
 
 export function NeedCards() {
   return (
-    <section id="skills" className="need-section">
-      <div className="section-heading dark">
-        <span>Choose a path</span>
-        <h2>What do you need today?</h2>
-        <p>Pick the install or config area that matches the setup you want.</p>
+    <section id="skills" className="paths-section">
+      <div className="section-header">
+        <div>
+          <span className="section-eyebrow">Choose a path</span>
+          <h2>
+            What do you
+            <br />
+            need today?
+          </h2>
+        </div>
+        <p>Pick the install or config area that matches the setup you want. Mix and match freely.</p>
       </div>
       <div className="need-grid">
         {needCards.map((card, index) => {
@@ -16,17 +21,15 @@ export function NeedCards() {
           const external = card.href.startsWith("http");
 
           return (
-            <motion.a
+            <a
               key={card.title}
-              className="spotlight-card"
+              className="path-card"
               href={card.href}
               target={external ? "_blank" : undefined}
               rel={external ? "noreferrer" : undefined}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: index * 0.04, duration: 0.45 }}
             >
+              <span className="card-accent" aria-hidden="true" />
+              <span className="card-num">{String(index + 1).padStart(2, "0")}</span>
               <span className="icon-chip">
                 <Icon aria-hidden="true" />
               </span>
@@ -36,7 +39,7 @@ export function NeedCards() {
                 {card.action}
                 <ArrowRight aria-hidden="true" />
               </span>
-            </motion.a>
+            </a>
           );
         })}
       </div>

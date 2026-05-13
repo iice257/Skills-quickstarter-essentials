@@ -1,80 +1,97 @@
-import { ArrowRight, CheckCircle2, Zap } from "lucide-react";
-import { lazy, Suspense, useState } from "react";
-import { motion } from "framer-motion";
+import { ArrowRight, Check, Play } from "lucide-react";
 import { trustItems } from "../data";
-import { MagneticButton } from "./MagneticButton";
-
-const HeroScene = lazy(() => import("./HeroScene").then((module) => ({ default: module.HeroScene })));
 
 export function Hero() {
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
   return (
-    <section
-      id="home"
-      className="hero-shell"
-      onPointerMove={(event) => {
-        const rect = event.currentTarget.getBoundingClientRect();
-        const x = (event.clientX - rect.left) / rect.width - 0.5;
-        const y = (event.clientY - rect.top) / rect.height - 0.5;
-        setTilt({ x, y });
-      }}
-      style={
-        {
-          "--tilt-x": `${tilt.x * 18}px`,
-          "--tilt-y": `${tilt.y * 18}px`
-        } as React.CSSProperties
-      }
-    >
-      <div className="aurora" aria-hidden="true" />
-      <div className="grid-glow" aria-hidden="true" />
+    <section id="home" className="hero-shell">
       <div className="hero-inner">
-        <motion.div
-          className="hero-copy"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-        >
+        <div className="hero-copy fade-up">
           <span className="eyebrow">AI agent / harness essentials</span>
           <h1>
-            Everything your <span>AI agent</span> needs, all in one place.
+            Everything
+            <br />
+            your <mark>AI agent</mark>
+            <br />
+            needs.
+            <br />
+            <span>All in one place.</span>
           </h1>
           <p>
             Curated skills, scenario bundles, provider packs, and MCP configs for Codex and other
-            agentic IDEs.
+            agentic IDEs. Install only what you need.
           </p>
 
           <div className="hero-actions">
-            <MagneticButton href="#scenarios">
+            <a className="btn-primary" href="#scenarios">
               Explore Scenarios
               <ArrowRight aria-hidden="true" />
-            </MagneticButton>
-            <MagneticButton href="#quick-start" variant="secondary">
+            </a>
+            <a className="btn-secondary" href="#quick-start">
               Quick Start
-              <Zap aria-hidden="true" />
-            </MagneticButton>
+              <Play aria-hidden="true" />
+            </a>
           </div>
 
           <div className="trust-row" aria-label="Trust signals">
             {trustItems.map((item) => (
               <span key={item}>
-                <CheckCircle2 aria-hidden="true" />
+                <i>
+                  <Check aria-hidden="true" />
+                </i>
                 {item}
               </span>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="hero-visual"
-          initial={{ opacity: 0, scale: 0.96, y: 18 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.08, ease: "easeOut" }}
-        >
-          <Suspense fallback={<div className="scene-placeholder">Loading agent workspace</div>}>
-            <HeroScene />
-          </Suspense>
-        </motion.div>
+        <div className="hero-visual fade-up">
+          <div className="terminal-frame">
+            <div className="frame-dots" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
+            <span className="frame-title">terminal - skill-starter-pack</span>
+            <div className="terminal-body">
+              <p>
+                <span className="t-prompt">$</span>
+                <span className="t-cmd"> Skill Installer install the skills listed at README.md</span>
+              </p>
+              <div className="t-output">
+                <span className="t-info">? Choose a setup path</span>
+                <span className="t-success">&gt; Scenarios / use-case bundles</span>
+                <span>  Skills / installable files</span>
+                <span>  MCPs / config references</span>
+                <span>  Providers / OpenAI, Claude, Gemini, Cursor</span>
+              </div>
+              <p>
+                <span className="t-prompt">$</span>
+                <span className="t-cmd"> install categories/web-development-setup</span>
+              </p>
+              <div className="t-output">
+                <span className="t-success">✓ Fetched scenario bundle</span>
+                <span className="t-success">✓ Installed matching skill paths</span>
+                <span className="t-success">✓ Ready after Codex restart</span>
+              </div>
+              <p>
+                <span className="t-prompt">$</span>
+                <span className="t-comment"> # Works with your provider of choice</span>
+              </p>
+              <div className="provider-chips">
+                {["OpenAI", "Claude", "Gemini", "Cursor"].map((provider) => (
+                  <span className="chip" key={provider}>
+                    <i />
+                    {provider}
+                  </span>
+                ))}
+              </div>
+              <p>
+                <span className="t-prompt">$</span>
+                <span className="t-cursor" aria-hidden="true" />
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
