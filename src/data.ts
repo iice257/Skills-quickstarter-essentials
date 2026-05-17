@@ -374,5 +374,5 @@ export const stats = [
   { value: "100+", label: "Skills" },
   { value: "20+", label: "Bundles" },
   { value: "4", label: "Provider packs" },
-  { value: "1command", label: "Setup time" }
+  { value: "1 command", label: "Setup time" }
 ];

@@ -71,6 +71,21 @@ export function ExpandableInstallCard({
           <X aria-hidden="true" />
         </button>
       ) : null}
+      {!expanded ? (
+        <button
+          className="open-card-button"
+          type="button"
+          aria-label={`Open ${item.title}`}
+          title={`Open ${item.title}`}
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            onToggle();
+          }}
+        >
+          Open
+        </button>
+      ) : null}
       <div className="expand-card-top">
         <em>{String(index + 1).padStart(2, "0")}</em>
         {multiSelect?.active ? (

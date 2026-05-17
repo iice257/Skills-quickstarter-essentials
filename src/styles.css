@@ -88,8 +88,8 @@ a:focus-visible {
 
 .brand-lockup {
   display: block;
-  width: 190px;
-  height: 32px;
+  width: 206px;
+  height: 36px;
   overflow: visible;
 }
 
@@ -101,14 +101,14 @@ a:focus-visible {
   letter-spacing: 0;
 }
 
-.brand-icon-code rect:first-child {
+.brand-icon-code .brand-shell {
   fill: transparent;
   stroke: var(--ink);
   stroke-width: 3;
 }
 
-.brand-icon-code rect:not(:first-child) {
-  fill: var(--ink);
+.brand-icon-code rect:not(.brand-shell) {
+  fill: #050505;
 }
 
 .brand-icon-code .terminal-tile {
@@ -1045,9 +1045,11 @@ a:focus-visible {
 }
 
 .agent-note {
-  margin-top: 28px;
-  padding-top: 22px;
-  border-top: 1px solid #333;
+  margin-top: 24px;
+  padding: 16px 18px 17px;
+  border: 1.5px solid #333;
+  border-radius: 8px;
+  background: #171717;
 }
 
 .agent-note span {
@@ -1294,6 +1296,42 @@ a:focus-visible {
 
 .expanded-close svg {
   display: none;
+}
+
+.open-card-button {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  z-index: 2;
+  min-height: 28px;
+  padding: 0 10px;
+  border: 1.5px solid #2b2b2b;
+  border-radius: 4px;
+  background: var(--ink);
+  color: var(--lime);
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease,
+    border-color 150ms ease;
+}
+
+.open-card-button:hover,
+.open-card-button:focus-visible {
+  border-color: var(--lime);
+  transform: translateY(-1px);
+}
+
+.expand-card:not(.expanded):hover .open-card-button,
+.expand-card:not(.expanded):focus-within .open-card-button {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .mini-copy {
@@ -1648,8 +1686,8 @@ a:focus-visible {
   }
 
   .brand-lockup {
-    width: 222px;
-    height: 37px;
+    width: 236px;
+    height: 40px;
   }
 
   .brand-lockup text {
@@ -1819,6 +1857,11 @@ a:focus-visible {
     max-width: 520px;
   }
 
+  .open-card-button {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   .expanded-detail {
     grid-template-columns: minmax(0, 1fr) minmax(240px, 0.9fr);
   }
@@ -1845,16 +1888,16 @@ a:focus-visible {
   }
 
   .brand-lockup {
-    width: clamp(150px, 45vw, 178px);
-    height: 30px;
+    width: clamp(166px, 48vw, 194px);
+    height: 34px;
   }
 
   .brand-lockup text {
     font-size: 16px;
   }
 
-  .brand-icon-code rect:first-child {
-    stroke-width: 3.4px;
+  .brand-icon-code .brand-shell {
+    stroke-width: 3.2px;
   }
 
   .menu-toggle {
@@ -1963,23 +2006,42 @@ a:focus-visible {
   }
 
   .stats-bar {
-    display: grid;
-    padding: 22px 16px;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    overflow-x: hidden;
+    padding: 16px 10px;
   }
 
   .stat-group {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: min(100%, 430px);
-    gap: 18px 10px;
+    display: inline-flex;
+    flex: 0 1 auto;
+    width: auto;
+    justify-content: center;
+    gap: clamp(6px, 2vw, 12px);
+    min-width: 0;
   }
 
   .stat-divider {
-    display: none;
+    display: block;
+    width: 1px;
+    height: 30px;
   }
 
   .stat {
     min-width: 0;
+    width: clamp(62px, 22vw, 86px);
+  }
+
+  .stat-val {
+    font-size: clamp(14px, 4.2vw, 19px);
+    white-space: nowrap;
+  }
+
+  .stat-label {
+    font-size: 7px;
+    letter-spacing: 0.8px;
+    white-space: nowrap;
   }
 
   .section-header {
@@ -2101,8 +2163,8 @@ a:focus-visible {
   }
 
   .agent-note {
-    margin-top: 22px;
-    padding-top: 18px;
+    margin-top: 20px;
+    padding: 14px 15px 15px;
   }
 
   .agent-note p {
@@ -2135,7 +2197,7 @@ a:focus-visible {
 
 @media (max-width: 380px) {
   .brand-lockup {
-    width: 142px;
+    width: 154px;
   }
 
   .nav-actions {
