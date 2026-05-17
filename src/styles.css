@@ -80,18 +80,47 @@ a:focus-visible {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   font-family: "Syne", sans-serif;
   font-size: 15px;
   font-weight: 800;
   letter-spacing: 0;
 }
 
-.brand-logo {
+.brand-lockup {
   display: block;
-  width: 214px;
-  max-width: 24vw;
-  height: auto;
+  width: 190px;
+  height: 32px;
+  overflow: visible;
+}
+
+.brand-lockup text {
+  fill: var(--ink);
+  font-family: "Syne", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.brand-icon-code rect:first-child {
+  fill: transparent;
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+
+.brand-icon-code rect:not(:first-child) {
+  fill: var(--ink);
+}
+
+.brand-icon-code .terminal-tile {
+  fill: var(--lime);
+}
+
+.brand-icon-code path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .brand-mark {
@@ -1196,34 +1225,45 @@ a:focus-visible {
 }
 
 .selection-toggle {
-  gap: 7px;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  padding: 0;
+  border-color: var(--ink);
+  background: var(--card);
+  color: var(--ink);
 }
 
 .selection-toggle span {
   display: grid;
-  width: 13px;
-  height: 13px;
+  width: 18px;
+  height: 18px;
   place-items: center;
-  border: 1.5px solid var(--ink);
-  border-radius: 3px;
+  border: 1.5px solid currentColor;
+  border-radius: 4px;
   background: transparent;
 }
 
-.selection-toggle.selected span {
+.selection-toggle:hover,
+.selection-toggle:focus-visible {
   background: var(--ink);
+  color: var(--lime);
 }
 
-.selection-toggle.selected span::after {
-  width: 5px;
-  height: 8px;
-  content: "";
-  transform: rotate(45deg);
-  border-right: 2px solid var(--lime);
-  border-bottom: 2px solid var(--lime);
+.selection-toggle.selected {
+  background: var(--ink);
+  color: var(--lime);
 }
 
-.selection-toggle b {
-  font: inherit;
+.selection-toggle.selected span {
+  background: var(--lime);
+  color: var(--ink);
+}
+
+.selection-toggle svg {
+  width: 13px;
+  height: 13px;
+  stroke-width: 3;
 }
 
 .expanded-detail {
@@ -1280,25 +1320,28 @@ a:focus-visible {
   background: var(--bg);
 }
 
-.multi-select-fab {
+.multi-select-actions {
   position: fixed;
   right: 24px;
   bottom: 24px;
   z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.multi-select-fab,
+.multi-select-cancel {
   display: inline-grid;
   grid-auto-flow: column;
   grid-auto-columns: max-content;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-width: 46px;
-  min-height: 46px;
+  height: 46px;
   padding: 0 14px;
   border: 1.5px solid var(--ink);
   border-radius: 4px;
-  background: var(--lime);
-  color: var(--ink);
-  box-shadow: 8px 8px 0 #d9d8cf;
   cursor: pointer;
   font: inherit;
   font-size: 12px;
@@ -1307,8 +1350,28 @@ a:focus-visible {
   transition:
     background 150ms ease,
     color 150ms ease,
-    opacity 150ms ease,
     transform 150ms ease;
+}
+
+.multi-select-fab {
+  min-width: 202px;
+  background: var(--lime);
+  color: var(--ink);
+  box-shadow: 8px 8px 0 #d9d8cf;
+}
+
+.multi-select-cancel {
+  width: 46px;
+  padding: 0;
+  border-color: #7f1717;
+  background: #e44848;
+  color: #fffdfa;
+  box-shadow: 5px 5px 0 #d9d8cf;
+}
+
+.multi-select-fab:hover,
+.multi-select-cancel:hover {
+  transform: translateY(-1px);
 }
 
 .multi-select-fab svg {
@@ -1317,19 +1380,7 @@ a:focus-visible {
 }
 
 .multi-select-fab span {
-  max-width: 0;
-  overflow: hidden;
   white-space: nowrap;
-  opacity: 0;
-  transition:
-    max-width 200ms ease,
-    opacity 160ms ease;
-}
-
-.multi-select-fab:hover span,
-.multi-select-fab.active span {
-  max-width: 180px;
-  opacity: 1;
 }
 
 .multi-select-fab em {
@@ -1350,6 +1401,7 @@ a:focus-visible {
   color: #85837b;
   cursor: not-allowed;
   opacity: 0.85;
+  transform: none;
 }
 
 .expanded-command code {
@@ -1506,9 +1558,9 @@ a:focus-visible {
     padding: 0 24px;
   }
 
-  .brand-logo {
-    width: 186px;
-    max-width: 34vw;
+  .brand-lockup {
+    width: 178px;
+    height: 30px;
   }
 
   .menu-toggle {
@@ -1598,14 +1650,13 @@ a:focus-visible {
     padding: 0 14px;
   }
 
-  .brand span:last-child {
-    max-width: 132px;
-    line-height: 1.05;
+  .brand-lockup {
+    width: 154px;
+    height: 26px;
   }
 
-  .brand-logo {
-    width: 132px;
-    max-width: none;
+  .brand-lockup text {
+    font-size: 15px;
   }
 
   .github-button {

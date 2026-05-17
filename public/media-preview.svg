@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" fill="none">
+  <rect width="1600" height="900" fill="#f5f4f0"/>
+  <g opacity=".28" stroke="#d4d2cb" stroke-width="1">
+    <path d="M74 70v760M120 70v760M166 70v760M212 70v760M258 70v760"/>
+    <path d="M70 118h270M70 166h270M70 214h270M70 262h270M70 310h270M70 358h270M70 406h270M70 454h270M70 502h270M70 550h270M70 598h270M70 646h270M70 694h270"/>
+  </g>
+  <g transform="translate(90 70)">
+    <rect x="0" y="0" width="106" height="106" rx="20" fill="#f5f4f0" stroke="#0e0e0e" stroke-width="8"/>
+    <rect x="18" y="18" width="31" height="31" rx="8" fill="#0e0e0e"/>
+    <rect x="57" y="18" width="31" height="31" rx="8" fill="#c6f135"/>
+    <rect x="18" y="57" width="31" height="31" rx="8" fill="#0e0e0e"/>
+    <rect x="57" y="57" width="31" height="31" rx="8" fill="#0e0e0e"/>
+    <path d="M65 27l15 10.5L65 48" stroke="#0e0e0e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M78 48h10" stroke="#0e0e0e" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <text x="230" y="112" fill="#0e0e0e" font-family="Arial Black, Syne, sans-serif" font-size="58" font-weight="900">Skill</text>
+  <text x="230" y="174" fill="#0e0e0e" font-family="Arial Black, Syne, sans-serif" font-size="58" font-weight="900">Starter Pack</text>
+  <text x="90" y="348" fill="#0e0e0e" font-family="Arial Black, Syne, sans-serif" font-size="92" font-weight="900">Everything</text>
+  <text x="90" y="455" fill="#0e0e0e" font-family="Arial Black, Syne, sans-serif" font-size="92" font-weight="900">you need</text>
+  <text x="90" y="562" fill="#0e0e0e" font-family="Arial Black, Syne, sans-serif" font-size="92" font-weight="900">to get <tspan fill="#9ad000">unstuck.</tspan></text>
+  <text x="94" y="662" fill="#0e0e0e" font-family="DM Mono, Consolas, monospace" font-size="31">Curated skill paths, provider packs,</text>
+  <text x="94" y="706" fill="#0e0e0e" font-family="DM Mono, Consolas, monospace" font-size="31">and agent-ready setups.</text>
+  <g transform="translate(92 760)">
+    <rect width="690" height="116" rx="12" fill="#0e0e0e"/>
+    <circle cx="30" cy="28" r="8" fill="#ff5f57"/>
+    <circle cx="58" cy="28" r="8" fill="#ffbd2e"/>
+    <circle cx="86" cy="28" r="8" fill="#27c93f"/>
+    <text x="38" y="72" fill="#c6f135" font-family="DM Mono, Consolas, monospace" font-size="24">$skill-starter install</text>
+  </g>
+  <g transform="translate(985 120)">
+    <text x="0" y="0" fill="#0e0e0e" font-family="DM Mono, Consolas, monospace" font-size="18" letter-spacing="3">PROVIDER PACKS</text>
+    <g transform="translate(0 38)">
+      <rect width="252" height="215" rx="8" fill="#fffdfa" stroke="#d4d2cb" stroke-width="1.5"/>
+      <text x="28" y="88" fill="#0e0e0e" font-family="Arial Black, Syne, sans-serif" font-size="24">OpenAI</text>
+      <text x="28" y="124" fill="#0e0e0e" font-family="DM Mono, Consolas, monospace" font-size="17">Official OpenAI skills</text>
+      <text x="28" y="156" fill="#0e0e0e" font-family="DM Mono, Consolas, monospace" font-size="17">from GitHub.</text>
+    </g>
+    <g transform="translate(282 38)">
+      <rect width="252" height="215" rx="8" fill="#fffdfa" stroke="#d4d2cb" stroke-width="1.5"/>
+      <text x="28" y="88" fill="#0e0e0e" font-family="Arial Black, Syne, sans-serif" font-size="24">Claude Code</text>
+      <text x="28" y="124" fill="#0e0e0e" font-family="DM Mono, Consolas, monospace" font-size="17">Anthropic skills</text>
+      <text x="28" y="156" fill="#0e0e0e" font-family="DM Mono, Consolas, monospace" font-size="17">plus local packs.</text>
+    </g>
+    <g transform="translate(0 284)">
+      <rect width="252" height="215" rx="8" fill="#fffdfa" stroke="#d4d2cb" stroke-width="1.5"/>
+      <text x="28" y="88" fill="#0e0e0e" font-family="Arial Black, Syne, sans-serif" font-size="24">Gemini</text>
+      <text x="28" y="124" fill="#0e0e0e" font-family="DM Mono, Consolas, monospace" font-size="17">Gemini CLI skills.</text>
+    </g>
+    <g transform="translate(282 284)">
+      <rect width="252" height="215" rx="8" fill="#fffdfa" stroke="#d4d2cb" stroke-width="1.5"/>
+      <text x="28" y="88" fill="#0e0e0e" font-family="Arial Black, Syne, sans-serif" font-size="24">Cursor</text>
+      <text x="28" y="124" fill="#0e0e0e" font-family="DM Mono, Consolas, monospace" font-size="17">Rules and skill refs.</text>
+    </g>
+  </g>
+  <g transform="translate(985 688)">
+    <rect width="560" height="154" rx="10" fill="#c6f135"/>
+    <text x="38" y="72" fill="#0e0e0e" font-family="Arial Black, Syne, sans-serif" font-size="45">One command.</text>
+    <text x="38" y="118" fill="#0e0e0e" font-family="Arial Black, Syne, sans-serif" font-size="45">Everything loaded.</text>
+  </g>
+</svg>

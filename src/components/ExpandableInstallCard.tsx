@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { KeyboardEvent } from "react";
 import { CopyButton } from "./CopyButton";
@@ -70,8 +70,8 @@ export function ExpandableInstallCard({
               multiSelect.toggle({ title: item.title, command: item.command });
             }}
           >
-            <span aria-hidden="true" />
-            <b>{selected ? "Selected" : "Select"}</b>
+            <span aria-hidden="true">{selected ? <Check /> : null}</span>
+            <b className="sr-only">{selected ? "Selected" : "Select"}</b>
           </button>
         ) : (
           <CopyButton className="mini-copy" value={item.command} label="Copy" successLabel="Copied" />

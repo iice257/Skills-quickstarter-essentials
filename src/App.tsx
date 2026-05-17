@@ -102,6 +102,19 @@ function App() {
     }, 0);
   }, []);
 
+  useEffect(() => {
+    if (!multiSelectActive) return;
+
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key !== "Escape") return;
+      setSelected({});
+      setMultiSelectActive(false);
+    }
+
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [multiSelectActive]);
+
   function handleNavigate(section: SectionKey) {
     setActiveSection(section);
     window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
@@ -125,6 +138,10 @@ function App() {
         active={multiSelectActive}
         selectedItems={Object.values(selected)}
         onEnable={() => setMultiSelectActive(true)}
+        onCancel={() => {
+          setSelected({});
+          setMultiSelectActive(false);
+        }}
         onCopied={() => {
           setSelected({});
           setMultiSelectActive(false);
