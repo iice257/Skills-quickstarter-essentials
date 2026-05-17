@@ -46,7 +46,7 @@ export function FavoritesSection({ multiSelect }: FavoritesSectionProps) {
                 summary: favorite.summary,
                 includes: favorite.includes,
                 icon: favorite.icon,
-                action: "View favourite"
+                action: null
               }}
               index={index}
               hiddenSameRow={hiddenSameRow}

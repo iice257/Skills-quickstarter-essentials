@@ -749,8 +749,7 @@ a:focus-visible {
 }
 
 .icon-chip,
-.command-icon,
-.provider-card > span {
+.command-icon {
   display: grid;
   width: 36px;
   height: 36px;
@@ -1254,7 +1253,9 @@ a:focus-visible {
   z-index: 2;
   display: grid;
   width: 32px;
+  min-width: 32px;
   height: 32px;
+  min-height: 32px;
   place-items: center;
   padding: 0;
   border: 1.5px solid #7f1717;
@@ -1267,6 +1268,24 @@ a:focus-visible {
     transform 150ms ease;
 }
 
+.expanded-close::before,
+.expanded-close::after {
+  position: absolute;
+  width: 15px;
+  height: 2px;
+  content: "";
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.expanded-close::before {
+  transform: rotate(45deg);
+}
+
+.expanded-close::after {
+  transform: rotate(-45deg);
+}
+
 .expanded-close:hover,
 .expanded-close:focus-visible {
   background: #c92f2f;
@@ -1274,9 +1293,7 @@ a:focus-visible {
 }
 
 .expanded-close svg {
-  width: 16px;
-  height: 16px;
-  stroke-width: 2.5;
+  display: none;
 }
 
 .mini-copy {

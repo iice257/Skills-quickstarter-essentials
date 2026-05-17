@@ -11,7 +11,7 @@ export type ExpandableInstallItem = {
   summary: string;
   includes: string[];
   icon: LucideIcon;
-  action?: string;
+  action?: string | null;
   logoSrc?: string;
   logoAlt?: string;
 };
@@ -121,10 +121,12 @@ export function ExpandableInstallCard({
           </div>
         </div>
       ) : (
-        <span className="card-action">
-          {item.action ?? "View details"}
-          <ArrowRight aria-hidden="true" />
-        </span>
+        item.action !== null ? (
+          <span className="card-action">
+            {item.action ?? "View details"}
+            <ArrowRight aria-hidden="true" />
+          </span>
+        ) : null
       )}
     </article>
   );
