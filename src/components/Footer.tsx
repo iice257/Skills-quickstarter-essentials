@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div>
-        <strong>Skill Starter Pack</strong>
+        <strong>CURATED, FOCUSED, AGENT READY</strong>
         <span>(c) ice 2026</span>
       </div>
       <nav aria-label="Footer links">

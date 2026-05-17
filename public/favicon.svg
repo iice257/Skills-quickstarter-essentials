@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Skill Starter Pack">
-  <rect x="4" y="4" width="56" height="56" rx="14" fill="#0e0e0e"/>
-  <rect x="18" y="18" width="11" height="11" rx="3" fill="#c6f135"/>
-  <rect x="35" y="18" width="11" height="11" rx="3" fill="#c6f135"/>
-  <rect x="18" y="35" width="11" height="11" rx="3" fill="#c6f135"/>
-  <rect x="35" y="35" width="11" height="11" rx="3" fill="#c6f135"/>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="#f5f4f0" stroke="#0e0e0e" stroke-width="5"/>
+  <rect x="16" y="16" width="15" height="15" rx="4" fill="#0e0e0e"/>
+  <rect x="34" y="16" width="15" height="15" rx="4" fill="#c6f135"/>
+  <rect x="16" y="34" width="15" height="15" rx="4" fill="#0e0e0e"/>
+  <rect x="34" y="34" width="15" height="15" rx="4" fill="#0e0e0e"/>
+  <path d="m39 21 5.5 4-5.5 4" fill="none" stroke="#0e0e0e" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M44.5 29h4.5" fill="none" stroke="#0e0e0e" stroke-width="3.2" stroke-linecap="round"/>
 </svg>
