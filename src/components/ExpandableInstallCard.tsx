@@ -103,7 +103,6 @@ export function ExpandableInstallCard({
           </div>
           <div className="expanded-command">
             <code>{item.command}</code>
-            <CopyButton value={item.command} label="Copy command" successLabel="Copied" />
           </div>
         </div>
       ) : (

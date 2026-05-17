@@ -1029,8 +1029,7 @@ a:focus-visible {
 }
 
 .command-row .copy-button,
-.cta-command .copy-button,
-.expanded-command .copy-button {
+.cta-command .copy-button {
   align-self: end;
   justify-self: end;
 }
