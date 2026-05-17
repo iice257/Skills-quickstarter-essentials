@@ -1,4 +1,4 @@
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, X } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { KeyboardEvent } from "react";
 import { CopyButton } from "./CopyButton";
@@ -56,6 +56,21 @@ export function ExpandableInstallCard({
       onKeyDown={handleKeyDown}
     >
       <span className="card-accent" aria-hidden="true" />
+      {expanded ? (
+        <button
+          className="expanded-close"
+          type="button"
+          aria-label={`Close ${item.title}`}
+          title="Close"
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            onToggle();
+          }}
+        >
+          <X aria-hidden="true" />
+        </button>
+      ) : null}
       <div className="expand-card-top">
         <em>{String(index + 1).padStart(2, "0")}</em>
         {multiSelect?.active ? (

@@ -1212,6 +1212,38 @@ a:focus-visible {
   color: #3f470f;
 }
 
+.expanded-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  z-index: 2;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  padding: 0;
+  border: 1.5px solid #7f1717;
+  border-radius: 4px;
+  background: #e44848;
+  color: #fffdfa;
+  cursor: pointer;
+  transition:
+    background 150ms ease,
+    transform 150ms ease;
+}
+
+.expanded-close:hover,
+.expanded-close:focus-visible {
+  background: #c92f2f;
+  transform: translateY(-1px);
+}
+
+.expanded-close svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.5;
+}
+
 .mini-copy {
   position: absolute;
   right: 20px;
