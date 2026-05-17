@@ -720,12 +720,18 @@ a:focus-visible {
 }
 
 .icon-chip svg,
+.icon-chip img,
 .scenario-card svg,
 .command-icon svg,
 .provider-card svg {
   width: 16px;
   height: 16px;
   stroke-width: 1.7;
+}
+
+.icon-chip img {
+  display: block;
+  object-fit: contain;
 }
 
 .path-card strong,
@@ -998,6 +1004,24 @@ a:focus-visible {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.providers-panel {
+  border-color: #242424;
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.providers-panel .panel-heading span {
+  color: #8e8e84;
+}
+
+.providers-panel .panel-heading h2 {
+  color: var(--bg);
+}
+
+.providers-panel .panel-heading p {
+  color: #a4a49a;
+}
+
 .expand-card {
   position: relative;
   overflow: hidden;
@@ -1043,6 +1067,58 @@ a:focus-visible {
     background 180ms ease,
     color 180ms ease,
     min-height 220ms ease;
+}
+
+.providers-panel .provider-card:not(.expanded) {
+  border-color: #2d2d2d;
+  background: #171717;
+  color: var(--bg);
+}
+
+.providers-panel .provider-card:not(.expanded):hover {
+  background: #1d1d1d;
+}
+
+.providers-panel .provider-card:not(.expanded) .icon-chip {
+  width: 48px;
+  height: 48px;
+  border-color: #333;
+  background: #0f0f0f;
+}
+
+.providers-panel .provider-card:not(.expanded) .icon-chip svg,
+.providers-panel .provider-card:not(.expanded) .icon-chip img {
+  width: 25px;
+  height: 25px;
+}
+
+.providers-panel .provider-card:not(.expanded) strong {
+  color: var(--bg);
+}
+
+.providers-panel .provider-card:not(.expanded) p,
+.providers-panel .provider-card:not(.expanded) .card-action,
+.providers-panel .provider-card:not(.expanded) em {
+  color: #a4a49a;
+}
+
+.providers-panel .provider-card:not(.expanded) .card-action {
+  width: max-content;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  white-space: nowrap;
+}
+
+.providers-panel .provider-card:not(.expanded):hover .card-action {
+  color: var(--lime);
+}
+
+.providers-panel .provider-card:not(.expanded) .mini-copy {
+  border-color: #333;
+  background: #202020;
+  color: var(--bg);
 }
 
 .provider-card:hover {

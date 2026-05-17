@@ -270,6 +270,7 @@ export const providers = [
     description: "Official OpenAI skills from GitHub and local Codex OpenAI cache entries.",
     href: `${repoUrl}/tree/main/categories/openai-official`,
     icon: Bot,
+    logoSrc: "/provider-logos/openai.svg",
     command: installCommand("tree/main/categories/openai-official"),
     summary: "Installs the OpenAI provider pack from official and local Codex entries.",
     includes: ["openai-docs", "imagegen", "Codex OpenAI cache skills"]
@@ -279,6 +280,7 @@ export const providers = [
     description: "Anthropic GitHub skills plus local Claude Code-style skills found on this machine.",
     href: `${repoUrl}/tree/main/categories/claude-code`,
     icon: Box,
+    logoSrc: "/provider-logos/claude.svg",
     command: installCommand("tree/main/categories/claude-code"),
     summary: "Installs Claude Code-style provider skills and Anthropic source entries.",
     includes: ["Anthropic skills", "Claude Code-style local skills", "provider references"]
@@ -288,6 +290,7 @@ export const providers = [
     description: "Gemini CLI GitHub skills plus local Gemini-related skills.",
     href: `${repoUrl}/tree/main/categories/gemini`,
     icon: Gem,
+    logoSrc: "/provider-logos/gemini.svg",
     command: installCommand("tree/main/categories/gemini"),
     summary: "Installs Gemini-related skills for Gemini CLI and API development workflows.",
     includes: ["gemini-api-dev", "Gemini CLI skills", "local Gemini entries"]
@@ -297,6 +300,7 @@ export const providers = [
     description: "Cursor rules and skill locations checked; no installable SKILL.md pack found yet.",
     href: `${repoUrl}/tree/main/categories/cursor`,
     icon: TerminalSquare,
+    logoSrc: "/provider-logos/cursor.svg",
     command: installCommand("tree/main/categories/cursor"),
     summary: "Opens the Cursor pack area and installs any tracked Cursor-compatible entries.",
     includes: ["Cursor rules notes", "provider check notes", "future pack path"]

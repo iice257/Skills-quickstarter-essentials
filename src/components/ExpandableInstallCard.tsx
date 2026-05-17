@@ -11,6 +11,8 @@ export type ExpandableInstallItem = {
   includes: string[];
   icon: LucideIcon;
   action?: string;
+  logoSrc?: string;
+  logoAlt?: string;
 };
 
 type ExpandableInstallCardProps = {
@@ -52,7 +54,11 @@ export function ExpandableInstallCard({
         <CopyButton className="mini-copy" value={item.command} label="Copy" successLabel="Copied" />
       </div>
       <span className="icon-chip">
-        <Icon aria-hidden="true" />
+        {item.logoSrc ? (
+          <img src={item.logoSrc} alt={item.logoAlt ?? ""} aria-hidden={item.logoAlt ? undefined : true} />
+        ) : (
+          <Icon aria-hidden="true" />
+        )}
       </span>
       <strong>{item.title}</strong>
       <p>{item.description}</p>

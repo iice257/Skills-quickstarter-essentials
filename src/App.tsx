@@ -12,6 +12,13 @@ import { ScenarioGrid } from "./components/ScenarioGrid";
 import { StatsBar } from "./components/StatsBar";
 import type { SectionKey } from "./data";
 
+const sectionKeys: SectionKey[] = ["home", "categories", "scenarios", "providers", "favorites", "about"];
+
+function getInitialSection(): SectionKey {
+  const hash = window.location.hash.replace("#", "");
+  return sectionKeys.includes(hash as SectionKey) ? (hash as SectionKey) : "home";
+}
+
 function HeroStage({ onNavigate }: { onNavigate: (section: SectionKey) => void }) {
   return (
     <section className="hero-stage" aria-label="Skill Starter Pack introduction">
@@ -78,12 +85,17 @@ function HomePage({ onNavigate }: { onNavigate: (section: SectionKey) => void })
 }
 
 function App() {
-  const [activeSection, setActiveSection] = useState<SectionKey>("home");
+  const [activeSection, setActiveSection] = useState<SectionKey>(getInitialSection);
   const [viewKey, setViewKey] = useState(0);
 
   function handleNavigate(section: SectionKey) {
     setActiveSection(section);
     setViewKey((current) => current + 1);
+    const nextUrl =
+      section === "home"
+        ? `${window.location.pathname}${window.location.search}`
+        : `${window.location.pathname}${window.location.search}#${section}`;
+    window.history.pushState(null, "", nextUrl);
     window.scrollTo({ top: 0, behavior: "auto" });
   }
 

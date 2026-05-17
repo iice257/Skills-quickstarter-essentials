@@ -27,6 +27,8 @@ export function EcosystemProviders() {
                   summary: provider.summary,
                   includes: provider.includes,
                   icon: provider.icon,
+                  logoSrc: provider.logoSrc,
+                  logoAlt: `${provider.name} logo`,
                   action: "Expand pack"
                 }}
                 index={index}
