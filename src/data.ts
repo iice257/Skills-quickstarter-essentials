@@ -36,14 +36,18 @@ const installCommand = (path: string) => `$skill-starter install ${commandRepoBa
 export type NavItem = {
   label: string;
   href: string;
+  section: SectionKey;
 };
 
+export type SectionKey = "home" | "categories" | "scenarios" | "providers" | "favorites" | "about";
+
 export const navItems: NavItem[] = [
-  { label: "Home", href: "#home" },
-  { label: "Categories", href: "#categories" },
-  { label: "Scenarios", href: "#scenarios" },
-  { label: "Providers", href: "#providers" },
-  { label: "About", href: "#about" }
+  { label: "Home", href: "#home", section: "home" },
+  { label: "Categories", href: "#categories", section: "categories" },
+  { label: "Scenarios", href: "#scenarios", section: "scenarios" },
+  { label: "Providers", href: "#providers", section: "providers" },
+  { label: "Favorites", href: "#favorites", section: "favorites" },
+  { label: "About", href: "#about", section: "about" }
 ];
 
 export type CommandRow = {
@@ -299,6 +303,63 @@ export const providers = [
   }
 ];
 
+export const favorites = [
+  {
+    name: "iMessage handoff",
+    description: "Move active Codex work into an iMessage handoff flow when you need continuity.",
+    href: `${repoUrl}/tree/main/favourites/imessage-handoff`,
+    icon: Bot,
+    command: installCommand("tree/main/favourites/imessage-handoff"),
+    summary: "Installs the handoff workflow from the favourites shortlist.",
+    includes: ["thread handoff", "continuity prompts", "Codex workflow support"]
+  },
+  {
+    name: "X publisher",
+    description: "Draft, validate, split, and prepare X posts or threads from agent output.",
+    href: `${repoUrl}/tree/main/favourites/x-publisher`,
+    icon: Sparkles,
+    command: installCommand("tree/main/favourites/x-publisher"),
+    summary: "Adds the publishing helper used for turning repo updates into concise X posts.",
+    includes: ["tweet drafts", "thread splitting", "dry-run publishing flow"]
+  },
+  {
+    name: "Autoresearch",
+    description: "Run focused research passes with structured notes and result templates.",
+    href: `${repoUrl}/tree/main/favourites/autoresearch`,
+    icon: FlaskConical,
+    command: installCommand("tree/main/favourites/autoresearch"),
+    summary: "Installs the research workflow for comparing sources, notes, and implementation options.",
+    includes: ["research plans", "result templates", "source synthesis"]
+  },
+  {
+    name: "Idea launcher",
+    description: "Turn rough ideas into scoped projects with useful first build plans.",
+    href: `${repoUrl}/tree/main/favourites/idea-launcher`,
+    icon: Lightbulb,
+    command: installCommand("tree/main/favourites/idea-launcher"),
+    summary: "Adds the product-shaping workflow for converting a loose idea into buildable next steps.",
+    includes: ["project framing", "blueprints", "implementation briefs"]
+  },
+  {
+    name: "MVP skill",
+    description: "Keep new projects focused on the smallest useful working version.",
+    href: `${repoUrl}/tree/main/favourites/minimum-viable-parser`,
+    icon: PackageCheck,
+    command: installCommand("tree/main/favourites/minimum-viable-parser"),
+    summary: "Installs the MVP-oriented skill currently tracked in the favourites slot.",
+    includes: ["scope trimming", "parser-first planning", "minimum viable output"]
+  },
+  {
+    name: "Skill updater",
+    description: "Refresh installed skills when the starter pack changes.",
+    href: `${repoUrl}/tree/main/favourites/skills-update`,
+    icon: Workflow,
+    command: installCommand("tree/main/favourites/skills-update"),
+    summary: "Adds the updater workflow for keeping installed starter-pack skills current.",
+    includes: ["skill refresh", "path checks", "update workflow"]
+  }
+];
+
 export const trustItems = [
   "Install only what you need",
   "One-command setup",
@@ -309,7 +370,7 @@ export const stats = [
   { value: "100+", label: "Skills" },
   { value: "20+", label: "Bundles" },
   { value: "4", label: "Provider packs" },
-  { value: "1cmd", label: "Setup time" }
+  { value: "1command", label: "Setup time" }
 ];
 
 export const ecosystem = [

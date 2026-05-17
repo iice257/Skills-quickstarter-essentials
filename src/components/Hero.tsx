@@ -1,8 +1,13 @@
 import { ArrowRight, Check, Copy, Play } from "lucide-react";
 import { useState } from "react";
 import { commands, trustItems } from "../data";
+import type { SectionKey } from "../data";
 
-export function Hero() {
+type HeroProps = {
+  onNavigate?: (section: SectionKey) => void;
+};
+
+export function Hero({ onNavigate }: HeroProps) {
   const [copied, setCopied] = useState(false);
   const mainCommand = commands[0].command;
 
@@ -53,7 +58,15 @@ export function Hero() {
           </p>
 
           <div className="hero-actions">
-            <a className="btn-primary" href="#scenarios">
+            <a
+              className="btn-primary"
+              href="#scenarios"
+              onClick={(event) => {
+                if (!onNavigate) return;
+                event.preventDefault();
+                onNavigate("scenarios");
+              }}
+            >
               Explore Scenarios
               <ArrowRight aria-hidden="true" />
             </a>
@@ -69,7 +82,15 @@ export function Hero() {
                 <span className="copy-tooltip">Command copied. Paste to agent to get started.</span>
               ) : null}
             </button>
-            <a className="btn-secondary" href="#categories">
+            <a
+              className="btn-secondary"
+              href="#categories"
+              onClick={(event) => {
+                if (!onNavigate) return;
+                event.preventDefault();
+                onNavigate("categories");
+              }}
+            >
               Categories
               <Play aria-hidden="true" />
             </a>
