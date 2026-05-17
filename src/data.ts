@@ -42,12 +42,12 @@ export type NavItem = {
 export type SectionKey = "home" | "categories" | "scenarios" | "providers" | "favorites" | "about";
 
 export const navItems: NavItem[] = [
-  { label: "Home", href: "#home", section: "home" },
-  { label: "Categories", href: "#categories", section: "categories" },
-  { label: "Scenarios", href: "#scenarios", section: "scenarios" },
-  { label: "Providers", href: "#providers", section: "providers" },
-  { label: "Favorites", href: "#favorites", section: "favorites" },
-  { label: "About", href: "#about", section: "about" }
+  { label: "Home", href: "/", section: "home" },
+  { label: "Categories", href: "/categories", section: "categories" },
+  { label: "Scenarios", href: "/scenarios", section: "scenarios" },
+  { label: "Providers", href: "/providers", section: "providers" },
+  { label: "Favorites", href: "/favorites", section: "favorites" },
+  { label: "About", href: "/about", section: "about" }
 ];
 
 export type CommandRow = {

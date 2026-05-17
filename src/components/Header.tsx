@@ -21,7 +21,7 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
     <header className="site-header">
       <a
         className="brand"
-        href="#home"
+        href="/"
         aria-label="Skill Starter Pack home"
         onClick={(event) => {
           event.preventDefault();

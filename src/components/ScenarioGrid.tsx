@@ -1,10 +1,18 @@
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { scenarios } from "../data";
+import { useGridColumns } from "../hooks/useGridColumns";
+import type { MultiSelectControls } from "../types";
 import { ExpandableInstallCard } from "./ExpandableInstallCard";
 
-export function ScenarioGrid() {
+type ScenarioGridProps = {
+  multiSelect: MultiSelectControls;
+};
+
+export function ScenarioGrid({ multiSelect }: ScenarioGridProps) {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const columns = useGridColumns({ desktop: 3, tablet: 2, mobile: 1 });
+  const expandedIndex = scenarios.findIndex((scenario) => scenario.name === expanded);
 
   return (
     <section id="scenarios" className="panel scenario-panel">
@@ -21,6 +29,11 @@ export function ScenarioGrid() {
 
       <div className="scenario-grid">
         {scenarios.map((scenario, index) => {
+          const hiddenSameRow =
+            expandedIndex >= 0 &&
+            index !== expandedIndex &&
+            Math.floor(index / columns) === Math.floor(expandedIndex / columns);
+
           return (
             <ExpandableInstallCard
               key={scenario.name}
@@ -34,8 +47,10 @@ export function ScenarioGrid() {
                 action: "Expand"
               }}
               index={index}
+              hiddenSameRow={hiddenSameRow}
               variant="scenario"
               expanded={expanded === scenario.name}
+              multiSelect={multiSelect}
               onToggle={() =>
                 setExpanded((current) => (current === scenario.name ? null : scenario.name))
               }

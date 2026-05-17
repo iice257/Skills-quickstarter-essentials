@@ -60,7 +60,7 @@ export function Hero({ onNavigate }: HeroProps) {
           <div className="hero-actions">
             <a
               className="btn-primary"
-              href="#scenarios"
+              href="/scenarios"
               onClick={(event) => {
                 if (!onNavigate) return;
                 event.preventDefault();
@@ -84,7 +84,7 @@ export function Hero({ onNavigate }: HeroProps) {
             </button>
             <a
               className="btn-secondary"
-              href="#categories"
+              href="/categories"
               onClick={(event) => {
                 if (!onNavigate) return;
                 event.preventDefault();

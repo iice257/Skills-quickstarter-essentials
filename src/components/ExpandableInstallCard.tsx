@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { KeyboardEvent } from "react";
 import { CopyButton } from "./CopyButton";
+import type { MultiSelectControls } from "../types";
 
 export type ExpandableInstallItem = {
   title: string;
@@ -19,7 +20,9 @@ type ExpandableInstallCardProps = {
   item: ExpandableInstallItem;
   index: number;
   expanded: boolean;
+  hiddenSameRow?: boolean;
   onToggle: () => void;
+  multiSelect?: MultiSelectControls;
   variant: "path" | "scenario" | "provider";
 };
 
@@ -27,10 +30,13 @@ export function ExpandableInstallCard({
   item,
   index,
   expanded,
+  hiddenSameRow = false,
   onToggle,
+  multiSelect,
   variant
 }: ExpandableInstallCardProps) {
   const Icon = item.icon;
+  const selected = Boolean(multiSelect?.selected[item.command]);
 
   function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
     if (event.key === "Enter" || event.key === " ") {
@@ -45,13 +51,31 @@ export function ExpandableInstallCard({
       role="button"
       tabIndex={0}
       aria-expanded={expanded}
+      hidden={hiddenSameRow}
       onClick={onToggle}
       onKeyDown={handleKeyDown}
     >
       <span className="card-accent" aria-hidden="true" />
       <div className="expand-card-top">
         <em>{String(index + 1).padStart(2, "0")}</em>
-        <CopyButton className="mini-copy" value={item.command} label="Copy" successLabel="Copied" />
+        {multiSelect?.active ? (
+          <button
+            className={`selection-toggle mini-copy ${selected ? "selected" : ""}`}
+            type="button"
+            aria-pressed={selected}
+            aria-label={`${selected ? "Remove" : "Select"} ${item.title}`}
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              multiSelect.toggle({ title: item.title, command: item.command });
+            }}
+          >
+            <span aria-hidden="true" />
+            <b>{selected ? "Selected" : "Select"}</b>
+          </button>
+        ) : (
+          <CopyButton className="mini-copy" value={item.command} label="Copy" successLabel="Copied" />
+        )}
       </div>
       <span className="icon-chip">
         {item.logoSrc ? (

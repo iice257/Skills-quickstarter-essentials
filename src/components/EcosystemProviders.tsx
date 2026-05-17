@@ -1,9 +1,17 @@
 import { useState } from "react";
 import { providers } from "../data";
+import { useGridColumns } from "../hooks/useGridColumns";
+import type { MultiSelectControls } from "../types";
 import { ExpandableInstallCard } from "./ExpandableInstallCard";
 
-export function EcosystemProviders() {
+type EcosystemProvidersProps = {
+  multiSelect: MultiSelectControls;
+};
+
+export function EcosystemProviders({ multiSelect }: EcosystemProvidersProps) {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const columns = useGridColumns({ desktop: 4, tablet: 2, mobile: 1 });
+  const expandedIndex = providers.findIndex((provider) => provider.name === expanded);
 
   return (
     <section className="ecosystem-section">
@@ -17,6 +25,11 @@ export function EcosystemProviders() {
         </div>
         <div className="provider-grid">
           {providers.map((provider, index) => {
+            const hiddenSameRow =
+              expandedIndex >= 0 &&
+              index !== expandedIndex &&
+              Math.floor(index / columns) === Math.floor(expandedIndex / columns);
+
             return (
               <ExpandableInstallCard
                 key={provider.name}
@@ -32,8 +45,10 @@ export function EcosystemProviders() {
                   action: "Expand pack"
                 }}
                 index={index}
+                hiddenSameRow={hiddenSameRow}
                 variant="provider"
                 expanded={expanded === provider.name}
+                multiSelect={multiSelect}
                 onToggle={() =>
                   setExpanded((current) => (current === provider.name ? null : provider.name))
                 }

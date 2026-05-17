@@ -1,9 +1,17 @@
 import { useState } from "react";
 import { needCards } from "../data";
+import { useGridColumns } from "../hooks/useGridColumns";
+import type { MultiSelectControls } from "../types";
 import { ExpandableInstallCard } from "./ExpandableInstallCard";
 
-export function NeedCards() {
+type NeedCardsProps = {
+  multiSelect: MultiSelectControls;
+};
+
+export function NeedCards({ multiSelect }: NeedCardsProps) {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const columns = useGridColumns({ desktop: 5, tablet: 2, mobile: 1 });
+  const expandedIndex = needCards.findIndex((card) => card.title === expanded);
 
   return (
     <section id="categories" className="paths-section">
@@ -20,6 +28,11 @@ export function NeedCards() {
       </div>
       <div className="need-grid">
         {needCards.map((card, index) => {
+          const hiddenSameRow =
+            expandedIndex >= 0 &&
+            index !== expandedIndex &&
+            Math.floor(index / columns) === Math.floor(expandedIndex / columns);
+
           return (
             <ExpandableInstallCard
               key={card.title}
@@ -33,8 +46,10 @@ export function NeedCards() {
                 action: card.action
               }}
               index={index}
+              hiddenSameRow={hiddenSameRow}
               variant="path"
               expanded={expanded === card.title}
+              multiSelect={multiSelect}
               onToggle={() => setExpanded((current) => (current === card.title ? null : card.title))}
             />
           );

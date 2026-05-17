@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { About } from "./components/About";
 import { BottomCta } from "./components/BottomCta";
 import { EcosystemProviders } from "./components/EcosystemProviders";
@@ -6,11 +6,13 @@ import { FavoritesSection } from "./components/FavoritesSection";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
+import { MultiSelectFab } from "./components/MultiSelectFab";
 import { NeedCards } from "./components/NeedCards";
 import { QuickStart } from "./components/QuickStart";
 import { ScenarioGrid } from "./components/ScenarioGrid";
 import { StatsBar } from "./components/StatsBar";
 import type { SectionKey } from "./data";
+import type { SelectionItem } from "./types";
 
 const sectionKeys: SectionKey[] = ["home", "categories", "scenarios", "providers", "favorites", "about"];
 
@@ -28,87 +30,106 @@ function HeroStage({ onNavigate }: { onNavigate: (section: SectionKey) => void }
   );
 }
 
-function DetailsStack() {
+type SharedPageProps = {
+  multiSelect: {
+    active: boolean;
+    selected: Record<string, SelectionItem>;
+    toggle: (item: SelectionItem) => void;
+  };
+};
+
+function DetailsStack({ multiSelect }: SharedPageProps) {
   return (
     <section className="details-section" aria-label="Skill Starter Pack details">
       <div className="surface-grid">
-        <ScenarioGrid />
+        <ScenarioGrid multiSelect={multiSelect} />
         <QuickStart />
       </div>
-      <EcosystemProviders />
+      <EcosystemProviders multiSelect={multiSelect} />
       <About />
-      <FavoritesSection />
+      <FavoritesSection multiSelect={multiSelect} />
       <BottomCta />
     </section>
   );
 }
 
-function FocusedSection({ section }: { section: Exclude<SectionKey, "home"> }) {
-  return (
-    <main className="focused-page">
-      {section === "categories" ? <NeedCards /> : null}
-      {section === "scenarios" ? (
-        <section className="details-section focused-details" aria-label="Popular scenarios">
-          <div className="surface-grid single-panel">
-            <ScenarioGrid />
-          </div>
-        </section>
-      ) : null}
-      {section === "providers" ? (
-        <section className="details-section focused-details" aria-label="Provider packs">
-          <EcosystemProviders />
-        </section>
-      ) : null}
-      {section === "favorites" ? (
-        <section className="details-section focused-details" aria-label="Favourite skills">
-          <FavoritesSection />
-        </section>
-      ) : null}
-      {section === "about" ? (
-        <section className="details-section focused-details" aria-label="About Skill Starter Pack">
-          <About />
-          <BottomCta />
-        </section>
-      ) : null}
-    </main>
-  );
-}
-
-function HomePage({ onNavigate }: { onNavigate: (section: SectionKey) => void }) {
+function HomePage({
+  multiSelect,
+  onNavigate
+}: SharedPageProps & { onNavigate: (section: SectionKey) => void }) {
   return (
     <main>
       <HeroStage onNavigate={onNavigate} />
-      <NeedCards />
-      <DetailsStack />
+      <NeedCards multiSelect={multiSelect} />
+      <DetailsStack multiSelect={multiSelect} />
     </main>
   );
 }
 
 function App() {
   const [activeSection, setActiveSection] = useState<SectionKey>(getInitialSection);
-  const [viewKey, setViewKey] = useState(0);
+  const [multiSelectActive, setMultiSelectActive] = useState(false);
+  const [selected, setSelected] = useState<Record<string, SelectionItem>>({});
+
+  const multiSelect = useMemo(
+    () => ({
+      active: multiSelectActive,
+      selected,
+      toggle(item: SelectionItem) {
+        setSelected((current) => {
+          const next = { ...current };
+          if (next[item.command]) {
+            delete next[item.command];
+          } else {
+            next[item.command] = item;
+          }
+          return next;
+        });
+      }
+    }),
+    [multiSelectActive, selected]
+  );
+
+  useEffect(() => {
+    if (!window.location.hash) return;
+
+    const section = getInitialSection();
+    window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+    window.setTimeout(() => {
+      const target =
+        section === "home" ? document.querySelector(".hero-stage") : document.getElementById(section);
+      target?.scrollIntoView({ behavior: "auto", block: "start" });
+    }, 0);
+  }, []);
 
   function handleNavigate(section: SectionKey) {
     setActiveSection(section);
-    setViewKey((current) => current + 1);
-    const nextUrl =
-      section === "home"
-        ? `${window.location.pathname}${window.location.search}`
-        : `${window.location.pathname}${window.location.search}#${section}`;
-    window.history.pushState(null, "", nextUrl);
-    window.scrollTo({ top: 0, behavior: "auto" });
+    window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+
+    const target =
+      section === "home" ? document.querySelector(".hero-stage") : document.getElementById(section);
+
+    if (!target) return;
+
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    target.classList.remove("section-fade-in");
+    window.setTimeout(() => target.classList.add("section-fade-in"), 20);
+    window.setTimeout(() => target.classList.remove("section-fade-in"), 780);
   }
 
   return (
     <>
       <Header activeSection={activeSection} onNavigate={handleNavigate} />
-      <div key={`${activeSection}-${viewKey}`} className="page-view">
-        {activeSection === "home" ? (
-          <HomePage onNavigate={handleNavigate} />
-        ) : (
-          <FocusedSection section={activeSection} />
-        )}
-      </div>
+      <HomePage multiSelect={multiSelect} onNavigate={handleNavigate} />
+      <MultiSelectFab
+        active={multiSelectActive}
+        selectedItems={Object.values(selected)}
+        onEnable={() => setMultiSelectActive(true)}
+        onCopied={() => {
+          setSelected({});
+          setMultiSelectActive(false);
+        }}
+      />
       <Footer />
     </>
   );

@@ -22,6 +22,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   min-width: 320px;
   min-height: 100vh;
@@ -194,14 +198,14 @@ a:focus-visible {
   cursor: pointer;
 }
 
-.page-view {
-  animation: pageFade 320ms ease both;
+.section-fade-in {
+  animation: sectionFade 720ms ease both;
 }
 
-@keyframes pageFade {
+@keyframes sectionFade {
   from {
-    opacity: 0;
-    transform: translateY(8px);
+    opacity: 0.3;
+    transform: translateY(10px);
   }
 
   to {
@@ -625,6 +629,15 @@ a:focus-visible {
   margin: 0 auto;
 }
 
+#categories,
+#scenarios,
+#providers,
+#favorites,
+#about,
+#quick-start {
+  scroll-margin-top: 84px;
+}
+
 .paths-section {
   padding: 80px 48px;
 }
@@ -666,7 +679,7 @@ a:focus-visible {
   min-height: 272px;
   flex-direction: column;
   gap: 12px;
-  padding: 32px 28px;
+  padding: 32px 28px 56px;
   border-right: 1.5px solid var(--border);
   background: var(--card);
   transition: background 150ms ease;
@@ -877,7 +890,7 @@ a:focus-visible {
   display: grid;
   min-height: 172px;
   gap: 10px;
-  padding: 20px;
+  padding: 20px 20px 54px;
   border-right: 1.5px solid var(--border);
   border-bottom: 1.5px solid var(--border);
   background: var(--card);
@@ -925,7 +938,7 @@ a:focus-visible {
   display: grid;
   grid-template-columns: 36px minmax(0, 1fr) auto;
   gap: 12px;
-  align-items: center;
+  align-items: end;
   padding: 12px;
   border: 1px solid #333;
   border-radius: 8px;
@@ -984,6 +997,13 @@ a:focus-visible {
   font: inherit;
   font-size: 11px;
   font-weight: 500;
+}
+
+.command-row .copy-button,
+.cta-command .copy-button,
+.expanded-command .copy-button {
+  align-self: end;
+  justify-self: end;
 }
 
 .copy-button svg {
@@ -1058,7 +1078,7 @@ a:focus-visible {
   min-height: 190px;
   flex-direction: column;
   gap: 12px;
-  padding: 20px;
+  padding: 20px 20px 54px;
   border: 1.5px solid var(--border);
   border-radius: 8px;
   background: var(--card);
@@ -1115,7 +1135,7 @@ a:focus-visible {
   color: var(--lime);
 }
 
-.providers-panel .provider-card .mini-copy {
+.providers-panel .provider-card .mini-copy:not(.selection-toggle) {
   display: none;
 }
 
@@ -1165,11 +1185,45 @@ a:focus-visible {
 }
 
 .mini-copy {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
   min-height: 28px;
   padding: 0 9px;
   border-color: var(--border);
   background: var(--bg);
   font-size: 10px;
+}
+
+.selection-toggle {
+  gap: 7px;
+}
+
+.selection-toggle span {
+  display: grid;
+  width: 13px;
+  height: 13px;
+  place-items: center;
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  background: transparent;
+}
+
+.selection-toggle.selected span {
+  background: var(--ink);
+}
+
+.selection-toggle.selected span::after {
+  width: 5px;
+  height: 8px;
+  content: "";
+  transform: rotate(45deg);
+  border-right: 2px solid var(--lime);
+  border-bottom: 2px solid var(--lime);
+}
+
+.selection-toggle b {
+  font: inherit;
 }
 
 .expanded-detail {
@@ -1224,6 +1278,91 @@ a:focus-visible {
   border: 1.5px solid var(--ink);
   border-radius: 8px;
   background: var(--bg);
+}
+
+.multi-select-fab {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 60;
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 46px;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  background: var(--ink);
+  color: var(--lime);
+  box-shadow: 8px 8px 0 #d9d8cf;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  animation: fabFloat 2.6s ease-in-out infinite;
+  transition:
+    background 150ms ease,
+    color 150ms ease,
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+
+.multi-select-fab svg {
+  width: 17px;
+  height: 17px;
+}
+
+.multi-select-fab span {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  transition:
+    max-width 200ms ease,
+    opacity 160ms ease;
+}
+
+.multi-select-fab:hover span,
+.multi-select-fab.active span {
+  max-width: 180px;
+  opacity: 1;
+}
+
+.multi-select-fab em {
+  display: grid;
+  min-width: 20px;
+  height: 20px;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--ink);
+  font-size: 10px;
+  font-style: normal;
+}
+
+.multi-select-fab:disabled {
+  border-color: #b8b6ad;
+  background: #d8d6cf;
+  color: #85837b;
+  cursor: not-allowed;
+  opacity: 0.85;
+  animation-play-state: paused;
+}
+
+@keyframes fabFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 .expanded-command code {
